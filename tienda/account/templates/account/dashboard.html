@@ -1,0 +1,55 @@
+{% include "tiendaapp/base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    body{
+        background-color: beige;
+    }
+</style>
+<body>
+    <br>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Bienvenid@, {{user}}</h4>
+        <hr>
+        <h5>Este es el dashboard donde puedes realizar las siguientes acciones:</h5>
+    </div>
+<br>
+<br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Seguir tus ordenes de compra</h4>
+        <hr>
+        <br>
+        <p>Sigue todas tus órdenes desde aquí.</p>
+        <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'user-logout' %}">Ver ordenes</a>
+    </div>
+<br>
+<br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Administrar tu cuenta</h4>
+        <hr>
+        <br>
+        <p>Actualiza o borra tu cuenta</p>
+        <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'profile-management' %}">Administrar Perfil</a>
+        <br>
+        <br>
+        
+    </div>
+    <br>
+    <br>
+        <div class="container bg-white shadow-md p-5 form-layout">
+            <h4>Administrar envios</h4>
+            <hr>
+            <br>
+            <p>Ingresa tus datos de despacho</p>
+            <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'manage-shipping' %}">Administrar envios</a>
+            <br>
+            <br>
+            
+        </div>
+
+</body>
+{% endblock %}

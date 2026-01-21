@@ -28,7 +28,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-cjb3r9rp4++2*d1-_kmax
 DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,amandaagni.cl').split(',')
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://amandaagni.cl',
+    'https://www.amandaagni.cl'
+]
 # Application definition
 
 INSTALLED_APPS = [

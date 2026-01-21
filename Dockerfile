@@ -1,23 +1,27 @@
 FROM python:3.12-slim
 
-# Instalar dependencias del sistema para psycopg2 (Postgres) y Pillow
-RUN apt-get update && apt-get install -y libpq-dev gcc python3-dev musl-dev zlib1g-dev libjpeg-dev
+# Instalación de dependencias del sistema
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc python3-dev musl-dev zlib1g-dev libjpeg-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /tienda
+# Carpeta de trabajo estándar en contenedores
+WORKDIR /app
 
-# Copiar requerimientos desde la raíz
+# 1. Copia el archivo desde la raíz ECOMMERCE a /app/
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar todo el contenido del proyecto
+# 2. Copia todo el contenido de ECOMMERCE a /app/
 COPY . .
 
-# Entrar a la subcarpeta donde está manage.py para los comandos
-WORKDIR /tienda/tiendaapp
+# 3. Moverse a la carpeta donde está manage.py (según tu foto)
+WORKDIR /app/tienda
 
+# 4. Preparar estáticos
 RUN python manage.py collectstatic --no-input
 
-# Exponer el puerto de Django
 EXPOSE 8000
 
+# 5. Ejecutar. Nota: el primer 'tienda' es el nombre de la carpeta que contiene wsgi.py
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "tienda.wsgi:application"]

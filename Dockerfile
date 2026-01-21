@@ -21,7 +21,7 @@ WORKDIR /app/tienda
 # 4. Preparar estáticos
 RUN python manage.py collectstatic --no-input
 
-EXPOSE 8000
+EXPOSE 8001
 
 # 5. Ejecutar. Nota: el primer 'tienda' es el nombre de la carpeta que contiene wsgi.py
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "tienda.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8001", "tienda.wsgi:application"]

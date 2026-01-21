@@ -22,13 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cjb3r9rp4++2*d1-_kmax5kfbh10sv0izma!=hi0mxk1b#4k6y'
+SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-cjb3r9rp4++2*d1-_kmax5kfbh10sv0izma!=hi0mxk1b#4k6y")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,amandaagni.cl').split(',')
 
 # Application definition
 
@@ -55,6 +54,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,9 +132,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS= [BASE_DIR/ 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'static/media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', BASE_DIR / 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -149,7 +151,8 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True  # TLS protocolo de seguridad para proteger la comunicacion
 
 #email del remitente
-EMAIL_HOST_USER ='jose.f.martinezc@gmail.com'
-EMAIL_HOST_PASSWORD='xwmbetnubgyomtbw' # APP PASSWORD
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 
 

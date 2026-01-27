@@ -4,253 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amanda Agni - Tu Santuario de Bienestar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Amanda Agni - Spa & Bienestar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #5e7a67;
-            --light-cream: #fdfbf9;
-            --text-dark: #4a4a4a;
-            --text-light: #6c757d;
+            --verde-spa: #5e7a67;
+            --crema: #fdfbf9;
+            --dorado-suave: #d4af37;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-cream);
-            color: var(--text-dark);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-green);
-        }
-        p {
-            color: var(--text-light);
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #eee;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .navbar-brand {
-            color: var(--primary-green) !important;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 1.5rem;
-        }
-        .nav-link {
-            color: var(--primary-green) !important;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-right: 15px;
-        }
-        .nav-link:hover {
-            color: #4a6152 !important;
-        }
-        .btn-spa {
-            background-color: var(--primary-green);
-            color: white;
-            border-radius: 5px; /* Ligeramente redondeado */
-            padding: 10px 25px;
-            border: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-        .btn-spa:hover {
-            background-color: #4a6152;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: #f0edea; /* Color base si el GIF no carga */
-            height: 90vh; /* Mayor altura para impacto */
-            display: flex;
-            align-items: center;
-            color: white;
-            position: relative;
-            overflow: hidden; /* Para que el GIF no se salga */
-        }
-        .hero-bg-gif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cubrirá todo el espacio */
-            z-index: 1; /* Detrás del texto */
-            opacity: 0.6; /* Un poco transparente para no distraer */
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2; /* Encima del GIF */
-            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
-            max-width: 800px;
-            margin: auto;
-        }
-        .hero h1 {
-            font-size: 4.5rem; /* Más grande */
-            line-height: 1.1;
-            color: white; /* Texto blanco sobre el GIF */
-        }
-        .hero p.lead {
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.9);
-            font-style: italic;
-        }
-        .hero .btn-spa {
-            background-color: #f7d28e; /* Botón dorado para contraste */
-            color: var(--text-dark);
-            border: 2px solid #f7d28e;
-        }
-        .hero .btn-spa:hover {
-            background-color: transparent;
-            color: #f7d28e;
-            box-shadow: 0 0 10px rgba(247, 210, 142, 0.7);
-        }
-
-        /* Secciones Generales */
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .section-heading h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--primary-green);
-        }
-        .section-heading .underline {
-            width: 70px;
-            height: 3px;
-            background: var(--primary-green);
-            margin: 0 auto 30px;
-        }
-        .bg-light-cream {
-            background-color: var(--light-cream);
-        }
-
-        /* Cards de Servicios */
-        .service-card {
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            background-color: white;
-            height: 100%; /* Para que todas las cards tengan la misma altura */
-            display: flex;
-            flex-direction: column;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        .service-card img {
-            width: 100%;
-            height: 250px; /* Altura fija para las imágenes */
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-        .service-card .card-body {
-            padding: 25px;
-            text-align: center;
-            flex-grow: 1; /* Ocupa el espacio restante */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Botón abajo */
-        }
-        .service-card h4 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--primary-green);
-        }
-        .service-card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            flex-grow: 1; /* Empuja el botón hacia abajo */
-        }
-
-        /* Sección de Paquetes */
-        .package-item {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        .package-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
-        .package-item h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        .package-item ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        .package-item ul li {
-            font-size: 1.05rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-        .package-item ul li i {
-            color: var(--primary-green);
-            margin-right: 10px;
-        }
-        .package-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-bottom: 25px;
-        }
-
-        /* Contacto/Reserva */
-        .contact-section {
-            background-color: #e0f2f1; /* Un tono más frío para diferenciar */
-            padding: 80px 0;
-        }
-        .contact-form .form-control {
-            border-radius: 5px;
-            border: 1px solid #ced4da;
-            padding: 12px 15px;
-            box-shadow: none;
-        }
-        .contact-form .form-control:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 0.25rem rgba(94, 122, 103, 0.25);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #343a40; /* Fondo oscuro */
-            color: rgba(255,255,255,0.7);
-            padding: 50px 0;
-        }
-        footer a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: var(--primary-green);
-        }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--crema); color: #4a4a4a; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* Iconos Sociales Flotantes */
-        .social-icons-float {
+        .social-sidebar {
             position: fixed;
             right: 20px;
             top: 50%;
@@ -258,264 +28,166 @@
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Espacio entre iconos */
+            gap: 15px;
         }
-        .social-icons-float a {
-            display: block;
+        .social-sidebar a {
             width: 45px;
             height: 45px;
-            background-color: rgba(94, 122, 103, 0.9); /* Verde con transparencia */
+            background: var(--verde-spa);
             color: white;
             border-radius: 50%;
-            text-align: center;
-            line-height: 45px;
-            font-size: 1.4rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        .social-icons-float a:hover {
-            background-color: var(--primary-green);
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        .social-sidebar a:hover { background: var(--dorado-suave); transform: scale(1.1); }
+
+        /* Hero con Imagen de Piedras Calientes */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
 
-        /* Responsive adjustments */
+        .btn-reserva {
+            background-color: var(--verde-spa);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-reserva:hover { background-color: #4a6152; color: white; transform: translateY(-3px); }
+
+        .service-card {
+            border: none;
+            background: white;
+            transition: 0.3s;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-img { height: 250px; object-fit: cover; width: 100%; }
+        
         @media (max-width: 768px) {
-            .hero { height: 70vh; }
-            .hero h1 { font-size: 3rem; }
-            .hero p.lead { font-size: 1.2rem; }
-            .section-heading h2 { font-size: 2.5rem; }
-            .social-icons-float {
-                right: 10px;
-                top: auto;
-                bottom: 20px;
-                transform: none;
-                flex-direction: row; /* En fila abajo en móviles */
-                width: calc(100% - 40px);
-                justify-content: center;
-                background-color: rgba(255, 255, 255, 0.9);
-                padding: 10px 0;
-                border-radius: 10px;
-            }
-            .social-icons-float a {
-                width: 40px;
-                height: 40px;
-                line-height: 40px;
-                font-size: 1.2rem;
-                background-color: var(--primary-green);
-            }
+            .social-sidebar { right: 10px; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="social-sidebar">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top bg-white py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">AMANDA AGNI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#paquetes">Paquetes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <li class="nav-item"><a class="btn btn-spa ms-lg-3" href="#contacto">Reservar Cita</a></li>
-                </ul>
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--verde-spa); letter-spacing: 2px;">AMANDA AGNI</a>
+            <div class="ms-auto">
+                <a href="#contacto" class="btn btn-reserva py-2 px-4 d-none d-md-inline-block">Reservar Ahora</a>
             </div>
         </div>
     </nav>
 
-    <div class="social-icons-float">
-        <a href="https://facebook.com/tupagina" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com/tuinstagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://tiktok.com/@tutiktok" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
-
-    <header id="inicio" class="hero text-center position-relative">
-        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1b3Z2NnR1czlsdW9xMmE1aGgzcXVyMGJ3ZG9vcDZ3YzI1cjAyaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kELx3e0JjJt7m/giphy.gif" alt="Ondas Doradas" class="hero-bg-gif">
-        <div class="container hero-content">
-            <h1 class="display-1 mb-4 animate__animated animate__fadeInDown">Amanda Agni</h1>
-            <p class="lead mb-4 animate__animated animate__fadeInUp">
-                "Privilegia tu salud corporal: la base de una vida plena y radiante."
-            </p>
-            <a href="#servicios" class="btn btn-spa btn-lg animate__animated animate__zoomIn">Explorar Bienestar</a>
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-2 mb-3">Privilegia tu Salud Corporal</h1>
+            <p class="lead mb-5 px-md-5">La base de una vida plena y radiante comienza con el cuidado de tu cuerpo. Déjanos guiarte hacia el equilibrio total.</p>
+            <a href="#servicios" class="btn btn-reserva btn-lg">Descubrir Bienestar</a>
         </div>
     </header>
 
-    <section id="servicios" class="py-5 py-md-5 bg-light-cream">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Nuestros Servicios</h2>
-                <div class="underline"></div>
-                <p>Descubre la variedad de tratamientos diseñados para tu bienestar integral.</p>
+    <section id="servicios" class="py-5 container">
+        <div class="text-center mb-5">
+            <h2 class="display-4">Nuestros Tratamientos</h2>
+            <p class="text-muted">Seleccionados para revitalizar cada parte de ti</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card card">
+                    <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=600" class="service-img" alt="Masajes Relajantes">
+                    <div class="card-body text-center">
+                        <h4>Masajes</h4>
+                        <p class="small text-muted">Relajación, Descontracturante y Piedras Calientes.</p>
+                        <a href="#contacto" class="btn btn-outline-secondary w-100 mt-2">Reservar</a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1543360216-95ff8160408d?auto=format&fit=crop&w=800&q=80" alt="Masaje Relajación">
-                        <div class="card-body">
-                            <h4>Masajes Relajación</h4>
-                            <p>Sumérgete en un estado de calma profunda, aliviando el estrés y la tensión acumulada.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Masaje</a>
-                        </div>
+
+            <div class="col-md-4">
+                <div class="service-card card">
+                    <img src="https://images.pexels.com/photos/3985330/pexels-photo-3985330.jpeg?auto=compress&cs=tinysrgb&w=600" class="service-img" alt="Tratamientos Faciales">
+                    <div class="card-body text-center">
+                        <h4>Faciales & Corporales</h4>
+                        <p class="small text-muted">Reductivos y rejuvenecimiento de piel.</p>
+                        <a href="#contacto" class="btn btn-outline-secondary w-100 mt-2">Reservar</a>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1600334089602-0e9803b87640?auto=format&fit=crop&w=800&q=80" alt="Masaje Descontracturante">
-                        <div class="card-body">
-                            <h4>Masaje Descontracturante</h4>
-                            <p>Libera nudos musculares y rigidez, mejorando tu movilidad y confort diario.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Masaje</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1596707328574-e86644f6f874?auto=format&fit=crop&w=800&q=80" alt="Masaje Piedras Calientes">
-                        <div class="card-body">
-                            <h4>Masaje Piedras Calientes</h4>
-                            <p>Calor terapéutico para una relajación muscular profunda y equilibrio energético.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Masaje</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1590209600100-34327e52a813?auto=format&fit=crop&w=800&q=80" alt="Tratamientos Faciales">
-                        <div class="card-body">
-                            <h4>Tratamientos Faciales</h4>
-                            <p>Renueva y revitaliza tu piel con nuestras rutinas personalizadas.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Facial</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1600334079409-a1d2f7e0d3c6?auto=format&fit=crop&w=800&q=80" alt="Tratamientos Corporales Reductivos">
-                        <div class="card-body">
-                            <h4>Tratamientos Reductivos</h4>
-                            <p>Define tu silueta y mejora la textura de tu piel con tecnología avanzada.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Reductivo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1600334149022-7f2a1b9c7b9c?auto=format&fit=crop&w=800&q=80" alt="Ondas y Tonificación">
-                        <div class="card-body">
-                            <h4>Ondas & Tonificación</h4>
-                            <p>Tecnología de ondas y planes de entrenamiento para una tonificación profunda.</p>
-                            <a href="#contacto" class="btn btn-spa mt-3">Reservar Tonificación</a>
-                        </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="service-card card">
+                    <img src="https://images.pexels.com/photos/4327024/pexels-photo-4327024.jpeg?auto=compress&cs=tinysrgb&w=600" class="service-img" alt="Entrenamiento Personalizado">
+                    <div class="card-body text-center">
+                        <h4>Tonificación</h4>
+                        <p class="small text-muted">Planes con ondas y entrenamiento físico personalizado.</p>
+                        <a href="#contacto" class="btn btn-outline-secondary w-100 mt-2">Reservar</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="paquetes" class="py-5 py-md-5">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Nuestros Paquetes Exclusivos</h2>
-                <div class="underline"></div>
-                <p>Combina tratamientos y disfruta de una experiencia de bienestar completa a un precio especial.</p>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="package-item">
-                        <h3>Paquete Esencial</h3>
-                        <div class="package-price">$60.000</div>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> 1 Sesión Masaje Relajación (60 min)</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Facial Básico</li>
-                            <li><i class="fas fa-check-circle"></i> Asesoría de Bienestar</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-spa">Reservar Esencial</a>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="package-item">
-                        <h3>Paquete Armonía</h3>
-                        <div class="package-price">$120.000</div>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> 2 Sesiones Masaje Descontracturante (60 min)</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Tratamiento Facial Anti-edad</li>
-                            <li><i class="fas fa-check-circle"></i> Sesión de Hidroterapia</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-spa">Reservar Armonía</a>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="package-item">
-                        <h3>Paquete Radiante</h3>
-                        <div class="package-price">$250.000</div>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> 3 Masajes a elección (90 min c/u)</li>
-                            <li><i class="fas fa-check-circle"></i> 2 Tratamientos Corporales Reductivos</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Mes Plan Tonificación Personalizado</li>
-                            <li><i class="fas fa-check-circle"></i> Consulta Nutricional</li>
-                        </ul>
-                        <a href="#contacto" class="btn btn-spa">Reservar Radiante</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact-section py-5 py-md-5">
-        <div class="container">
-            <div class="section-heading">
-                <h2 class="text-white">Reserva Tu Experiencia de Bienestar</h2>
-                <div class="underline bg-white"></div>
-                <p class="text-white-75">Contáctanos hoy mismo para agendar tu cita o resolver cualquier duda.</p>
-            </div>
+    <section id="contacto" class="py-5 bg-white shadow-inner">
+        <div class="container max-width-600">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form class="contact-form p-4 bg-white rounded shadow-sm">
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Tu Nombre" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Tu Email" required>
-                            </div>
+                <div class="col-md-6 text-center">
+                    <h2 class="mb-4">Agenda tu Cita</h2>
+                    <p class="mb-5">Transforma tu bienestar hoy mismo. Completa tus datos y nos pondremos en contacto contigo.</p>
+                    <form action="#" method="POST" class="text-start">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control rounded-0" required>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Tu Teléfono (opcional)">
+                            <label class="form-label">WhatsApp de Contacto</label>
+                            <input type="tel" class="form-control rounded-0" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mensaje o Servicio de Interés" required></textarea>
+                            <label class="form-label">Servicio de Interés</label>
+                            <select class="form-select rounded-0">
+                                <option>Masaje Piedras Calientes</option>
+                                <option>Tratamiento Reductivo</option>
+                                <option>Entrenamiento Personalizado</option>
+                            </select>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-spa btn-lg w-100">Enviar Solicitud</button>
-                        </div>
+                        <button type="submit" class="btn btn-reserva w-100">Enviar Solicitud</button>
                     </form>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <p class="text-white-75">También puedes contactarnos directamente:</p>
-                <p class="text-white-75"><i class="fas fa-phone me-2"></i> +56 9 1234 5678</p>
-                <p class="text-white-75"><i class="fas fa-envelope me-2"></i> info@amandaagni.cl</p>
-            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Amanda Agni. Todos los derechos reservados.</p>
-            <div>
-                <a href="https://facebook.com/tupagina" target="_blank" class="mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/tuinstagram" target="_blank" class="mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com/@tutiktok" target="_blank" class="mx-2"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
+    <footer class="py-4 text-center border-top">
+        <p class="small text-muted">&copy; 2026 Amanda Agni - Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
